@@ -1,0 +1,6 @@
+<div id="poke_container" class="poke-container" *ngIf="!isLoading">
+  <div *ngFor="let pokemon of pokemons">
+    <app-poke-card [pokemon]="pokemon">
+    </app-poke-card>
+  </div>
+</div>
