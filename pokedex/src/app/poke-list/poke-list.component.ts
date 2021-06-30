@@ -14,7 +14,6 @@ export class PokeListComponent implements OnInit {
 
   public pokemons: Pokemon[] = [];
 
-  public isLoading = false;
   constructor(private pokeClientApi: PokeClientService) { }
 
   ngOnInit(): void {
@@ -28,12 +27,9 @@ export class PokeListComponent implements OnInit {
   };
 
   public getPokemon(id: number) {
-    this.isLoading = true;
     this.pokeClientApi.getPokemon(id).pipe(
       tap(pokemon => this.pokemons.push(pokemon))
-    ).subscribe(() => {
-      this.isLoading = false;
-    });
+    ).subscribe();
   };
 
 }
