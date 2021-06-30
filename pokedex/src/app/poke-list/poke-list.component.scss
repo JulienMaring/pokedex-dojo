@@ -1,8 +1,11 @@
 .poke-container {
+  background: #EFEFBB;
+  background: -webkit-linear-gradient(to right, #D4D3DD, #EFEFBB);
+  background: linear-gradient(to right, #D4D3DD, #EFEFBB);
   display: flex;
   flex-wrap: wrap;
   align-item: space-between;
   justify-content: center;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: max-content;
 }
