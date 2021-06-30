@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Pokemon} from 'src/app/types/pokemon.interface';
 import {PokeClientService} from 'src/app/service/poke-client.service';
-import {tap} from 'rxjs/operators';
+import {map, mergeMap, skip, take, tap} from 'rxjs/operators';
+import {interval} from 'rxjs';
 
 @Component({
   selector: 'app-poke-list',
@@ -10,7 +11,7 @@ import {tap} from 'rxjs/operators';
 })
 export class PokeListComponent implements OnInit {
 
-  public POKEMON_NUMBER = 150;
+  public POKEMON_NUMBER = 200;
 
   public pokemons: Pokemon[] = [];
 
@@ -21,15 +22,21 @@ export class PokeListComponent implements OnInit {
   }
 
   async fetchPokemons() {
-    for (let id = 1; id <= this.POKEMON_NUMBER; id++) {
-      this.getPokemon(id);
-    }
+    const pokemonsIndex = interval(500).pipe(
+      skip(1),
+      take(this.POKEMON_NUMBER));
+    pokemonsIndex.pipe(
+      mergeMap((id: number) => {
+        return this.getPokemon(id);
+      })
+    ).subscribe();
+
   };
 
   public getPokemon(id: number) {
-    this.pokeClientApi.getPokemon(id).pipe(
+    return this.pokeClientApi.getPokemon(id).pipe(
       tap(pokemon => this.pokemons.push(pokemon))
-    ).subscribe();
+    )
   };
 
 }
