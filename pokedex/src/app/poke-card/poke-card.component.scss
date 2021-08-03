@@ -1,20 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400&display=swap');
+@import 'src/stylesheets/mixins.scss';
 
 * {
   box-sizing: border-box;
 }
-
-
 
 h1 {
   letter-spacing: 3px;
 }
 
 .pokemon {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @include flex-justify-content();
   background-color: #eee;
   border-radius: 20px;
   box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);

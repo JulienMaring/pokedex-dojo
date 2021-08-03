@@ -1,8 +1,8 @@
+@import 'src/stylesheets/mixins.scss';
+
 body {
-  display: flex;
-  flex-direction: column;
+  @include flex-justify-content();
   align-items: center;
-  justify-content: center;
   font-family: 'Lato';
   margin: 0;
   width: 100%;
