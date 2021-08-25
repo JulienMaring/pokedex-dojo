@@ -1,1 +1,4 @@
-<p>home-page works!</p>
+<button (click)="logIn()">Log In</button>
+<button (click)="logOut()">Log Out</button>
+<div *ngIf="isLoggedIn">You are log in</div>
+<div *ngIf="!isLoggedIn">You are log out</div>

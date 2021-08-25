@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Pokemon} from 'src/app/pokedex-page/types/pokemon.interface';
-import {PokeClientService} from 'src/app/pokedex-page/service/poke-client.service';
-import {map, mergeMap, skip, take, tap} from 'rxjs/operators';
-import {interval} from 'rxjs';
+import { Pokemon } from 'src/app/pokedex-page/types/pokemon.interface';
+import { PokeClientService } from 'src/app/pokedex-page/service/poke-client.service';
+import { mergeMap, skip, take, tap } from 'rxjs/operators';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-poke-list',

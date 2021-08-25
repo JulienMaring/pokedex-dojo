@@ -9,7 +9,20 @@ export class HomePageComponent implements OnInit {
 
   constructor() { }
 
+  public isLoggedIn: string | null = null;
+
   ngOnInit(): void {
+    this.isLoggedIn = localStorage.getItem('isLoggedIn');
   }
 
+  public logIn() {
+    console.log('ok');
+    this.isLoggedIn = 'true';
+    localStorage.setItem('isLoggedIn', 'true');
+  }
+
+  public logOut() {
+    this.isLoggedIn = null;
+    localStorage.clear();
+  }
 }
